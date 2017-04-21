@@ -87,7 +87,7 @@ Route::post('/edit/season/{season_id}','SeasonController@update');
 Route::get('/edit/match','MatchController@create');
 Route::post('/edit/match','MatchController@update');
 
-//Delete routed test caliss
+//Delete routed test caliss de criss
 
 Route::post('/delete/user/{user_id}','UserController@destroy');
 
