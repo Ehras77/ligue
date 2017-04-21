@@ -9,6 +9,15 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function roles()
+     {
+        return $this->belongsToMany('Role', 'roles_users');
+     }
+
+     public function teams(){
+        return $this->hasOne('Team');
+     }
+
     /**
      * The attributes that are mass assignable.
      *
