@@ -17,10 +17,12 @@ Route::get('/','HomeController@show');
 Route::get('/calendrier/{league_id}','MatchController@show');
 
 //classements equipes ligue avec stats
-Route::get('/classement/equipe/{league_id}/{team_id}','StatsController@showStatsTeam');
+Route::get('/league/{league}/teams');
+//Route::get('/classement/equipe/{league_id}/{team_id}','StatsController@showStatsTeam');
 
 //joueur ligue classement stats
-Route::get('/classement/joueur/{league_id}/{player_id}','StatsController@showstatsPlayer');
+Route::get('/league/{league}/players');
+//Route::get('/classement/joueur/{league_id}/{player_id}','StatsController@showstatsPlayer');
 
 //page profil joueur, avec stats courantes, toutes les saisons
 Route::get('/joueur/{player_id}','PlayerController@showPlayer');
