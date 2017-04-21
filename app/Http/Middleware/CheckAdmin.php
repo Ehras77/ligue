@@ -20,7 +20,7 @@ class CheckAdmin
             return $next($request);
         }
 
-        //test 2
+        //test 23
         return redirect('/');
     }
 }
