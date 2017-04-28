@@ -8,7 +8,7 @@ class Player extends Model
 {
     //
     public function Team(){
-    	return $this->belongsTo('Team','player_teams');
+    	return $this->belongsToMany(Team::class);
     }
 
     public function Position(){

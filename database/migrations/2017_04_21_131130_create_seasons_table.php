@@ -14,8 +14,9 @@ class CreateSeasonsTable extends Migration
     public function up()
     {
         Schema::create('seasons', function (Blueprint $table) {
-            $table->increments('season_id');
-            $table->integer('year');
+            $table->increments('id');
+            $table->datetime('start_date');
+            $table->datetime('end_date');
             $table->integer('league_id');
             $table->timestamps();
         });

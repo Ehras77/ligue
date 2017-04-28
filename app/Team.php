@@ -13,11 +13,7 @@ class Team extends Model
     }
 
     public function Player(){
-    	return $this->belongsTo('Player','player-teams');
+    	return $this->belongsToMany(Player::class);
     }
 
-    public function User(){
-
-    	return $this->hasOne('User');
-    }
 }

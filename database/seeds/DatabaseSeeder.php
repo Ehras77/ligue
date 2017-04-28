@@ -13,29 +13,71 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-        factory(App\Player::class,5)->create();
-       	factory(App\User::class,10)->create();
 
+       	$positions = array('Centre','Ailier','Défenseur','Goaler');
 
-       	$positions = {'Centre','Ailier','Défenseur','Goaler'}
-
-       	for(int $i =0;$i<$positions.length;$i++){
-
-		       	DB::table('positions')->insert([
-		            'position_name' => $positions[$i],
+       	foreach($positions as $pos){
+       			DB::table('positions')->insert([
+		            'position_name' => $pos,
 		        ]);
-
        	}
 
-        $roles = {'Admin','teamAdmin'}
 
-        for(int $j =0;$j<$roles.length;$j++){
+        $roles = array('Admin','teamAdmin');
 
-		       	DB::table('roles')->insert([
-		            'role_name' => $roles[$j],
+        foreach($roles  as $role){
+        	    DB::table('roles')->insert([
+		            'role_name' => $role,
 		        ]);
+        }
 
+
+
+       	$leagueClass = array('A','AAA','B','CC','Papillon');
+
+       	foreach($leagueClass  as $class){
+        	    DB::table('league_classes')->insert([
+		            'class_name' => $class,
+		        ]);
+        }
+
+       	factory(App\League::class,5)->create();
+       	factory(App\Season::class,10)->create();
+       	factory(App\User::class,100)->create();
+       	factory(App\Team::class,10)->create();
+      	factory(App\Match::class,150)->create();
+       	factory(App\Player::class,200)->create()->each(function($player){
+
+       		$team = DB::Table('teams')->get()->random();
+
+       		DB::Table('player_teams')->insert([
+       			'player_id' => $player->id,
+       			'team_id' => $team->id,
+			]);
+
+       		$continue = true;
+
+       if (rand(0,100) > 50){
+       		while($continue == true){
+       			$user = DB::Table('users')->get()->random()->id;
+
+       			if($user == DB::Table('users')->get()->count()){
+       				$continue = false;
+       			}
+       			$contains = DB::Table('players')->get()->whereInStrict('user_id',$user);
+       			if ($contains->isEmpty()){
+
+       				//$player->update(array('user_id' => $user));
+       				DB::table('players')->where('id',$player->id)->update(array('user_id' => $user));
+					$continue = false;
+       			}
+
+       		}
        	}
+       	});
+
+        factory(App\Stats::class,1000)->create();
+       	
 
 
 

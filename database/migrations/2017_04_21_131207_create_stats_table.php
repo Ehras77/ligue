@@ -14,11 +14,11 @@ class CreateStatsTable extends Migration
     public function up()
     {
         Schema::create('stats', function (Blueprint $table) {
-            $table->increments('stats_id');
+            $table->increments('id');
             $table->integer('player_id');
             $table->integer('match_id');
             $table->integer('stat_type_id');
-            $table->datetime('temps_cadran');
+            $table->time('temps_cadran');
             $table->integer('periode');
             $table->timestamps();
         });
