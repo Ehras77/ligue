@@ -28,7 +28,7 @@ $factory->define(App\League::class,function(Faker\Generator $faker)){
 
 	return[
 		'nom' => $faker->name,
-		'id_class' => $faker->numberBetween($min= 1, $max=10);
+		'id_class' => $faker->numberBetween($min= 1, $max=10),
 	]
 
 	DB::Table('');
@@ -38,7 +38,34 @@ $factory->define(App\Team::class,function(Faker\Generator $faker)){
 
 	return[
 		'nom' => $faker->name,
-		'ligue_id' => DB::Table('leagues')->get()->random()->id();
+		'ligue_id' => DB::Table('leagues')->get()->random()->id(),
+		'user_id' => DB::Table('users')->get()->random()->id(),
+	]
+}
+
+$factory->define(App\Stats::class,function(Faker\Generator $faker)){
+
+	return[
+		'player_id' => DB::Table('players')->get()->randomm()->id(),
+		'match_id' => DB::Table('matches')->get()->random()->id(),
+		'stat_type_id' => $faker->numberBetween($min=1, $max=4),
+		'temps_cadran' => $faker->time($format = 'H:i:s', $max = 'now'),
+		'periode' => $faker->numberBetween($min=1, $max=3),
+
+	]
+}
+
+$factory->define(App\Match::class,function(Faler\Generator $faker)){
+
+	return[
+		'season_id' => DB::Table('seasons')->get()->random()->id(),
+		$localTeam = DB::Table('teams')->get()->random();
+		$visitorTeam = DB::Table('teams')->get()->random()->where('team_id','!=',$localTeam->id());
+
+		'local_team_id' => $localTeam->$id,
+		'visiting_team_id' => $visitorTeam->id,
+		'location' => $faker->city,
+		
 	]
 }
 
