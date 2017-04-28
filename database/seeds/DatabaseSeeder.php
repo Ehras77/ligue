@@ -55,6 +55,7 @@ class DatabaseSeeder extends Seeder
        			'team_id' => $team->id,
 			]);
 
+
        		$continue = true;
 
        if (rand(0,100) > 50){
@@ -67,8 +68,9 @@ class DatabaseSeeder extends Seeder
        			$contains = DB::Table('players')->get()->whereInStrict('user_id',$user);
        			if ($contains->isEmpty()){
 
-       				//$player->update(array('user_id' => $user));
+       				
        				DB::table('players')->where('id',$player->id)->update(array('user_id' => $user));
+       				DB::table('users')->where('id',$user)->update(array('player_id'=> $player->id));
 					$continue = false;
        			}
 
