@@ -34,6 +34,17 @@ $factory->define(App\League::class,function(Faker\Generator $faker)){
 	DB::Table('');
 }
 
+$factory->define(App\Season::class,function(Faker\Generator $faker){
+  $league = DB::table('leagues')->get()->random();
+  $date = Carbon\Carbon::now();
+  return[
+    'name' => $faker-<name,
+    'start_date' => $date,
+    'end_date' => $date->addYear();,
+    'league_id' => $league->id();
+  ]
+});
+
 $factory->define(App\Team::class,function(Faker\Generator $faker)){
 
 	return[
@@ -77,6 +88,6 @@ $factory->define(App\Player::class, function (Faker\Generator $faker) {
         'number' => $faker->randomDigitNotNull,
         'team_id'=> DB::Table('teams')->get->random()->id(),
         'position_id' => $faker->numberBetween($min = 1, $max=4),
-     	
+
     ];
 });
