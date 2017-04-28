@@ -9,7 +9,7 @@ class Team extends Model
     //
 
     public function League(){
-    	return $this->belongsTo('League');
+    	return $this->belongsTo(League::class);
     }
 
     public function Player(){

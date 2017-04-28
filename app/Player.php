@@ -12,10 +12,14 @@ class Player extends Model
     }
 
     public function Position(){
-    	return $this->belongsTo('Position');
+    	return $this->belongsTo(Position::class);
     }
 
     public function Stats(){
-    	return $this->hasMany('Stats');
+    	return $this->hasMany(Stats::class);
+    }
+
+    public function user(){
+    	return $this->hasOne(User::class);
     }
 }

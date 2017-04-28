@@ -9,6 +9,6 @@ class Stat_Type extends Model
     //
 
     public function Stats(){
-    	return $this->hasMany('Stats');
+    	return $this->hasMany(Stats::class);
     }
 }

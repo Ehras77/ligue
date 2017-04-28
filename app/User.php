@@ -14,8 +14,9 @@ class User extends Authenticatable
         return $this->belongsToMany('Role', 'roles_users');
      }
 
-     public function teams(){
-        return $this->hasOne('Team');
+
+     public function player(){
+        return $this->hasOne(Player::class);
      }
 
      public function isAdmin(){

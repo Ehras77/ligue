@@ -10,12 +10,12 @@ class League extends Model
 
     public function Team()
      {
-         return $this->hasMany('Team');
+         return $this->hasMany(Team::class);
      }
 
      public function Season()
      {
-     	return $this->hasMany('Season');
+     	return $this->hasMany(Season::class);
      }
 
      public function League_Class()

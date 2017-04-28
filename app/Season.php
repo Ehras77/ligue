@@ -9,12 +9,12 @@ class Season extends Model
     //
 
     public function League(){
-    	return $this->belongsTo('League');
+    	return $this->belongsTo(League::class);
     }
 
     public function Match(){
-    	return $this->hasMany('Match');
+    	return $this->hasMany(Match::class);
     }
 
-    
+
 }
