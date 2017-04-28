@@ -27,6 +27,16 @@ class DatabaseSeeder extends Seeder
 
        	}
 
+        $roles = {'Admin','teamAdmin'}
+
+        for(int $j =0;$j<$roles.length;$j++){
+
+		       	DB::table('roles')->insert([
+		            'role_name' => $roles[$j],
+		        ]);
+
+       	}
+
 
 
 
