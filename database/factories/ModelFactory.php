@@ -24,14 +24,32 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\League::class,function(Faker\Generator $faker)){
+
+	return[
+		'nom' => $faker->name,
+		'id_class' => $faker->numberBetween($min= 1, $max=10);
+	]
+
+	DB::Table('');
+}
+
+$factory->define(App\Team::class,function(Faker\Generator $faker)){
+
+	return[
+		'nom' => $faker->name,
+		'ligue_id' => DB::Table('leagues')->get()->random()->id();
+	]
+}
+
 $factory->define(App\Player::class, function (Faker\Generator $faker) {
 
     return [
         'first_name' => $faker->name,
         'last_name'=> $faker->name,
         'number' => $faker->randomDigitNotNull,
-        'team_id'=> $faker->randomDigitNotNull,
-        'position_id' => $faker->numberBetween($min = 1, $max=5),
+        'team_id'=> DB::Table('teams')->get->random()->id(),
+        'position_id' => $faker->numberBetween($min = 1, $max=4),
      	
     ];
 });
