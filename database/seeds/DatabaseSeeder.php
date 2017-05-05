@@ -33,15 +33,6 @@ class DatabaseSeeder extends Seeder
 
 
 
-       	$leagueClass = array('A','AAA','B','CC','Papillon');
-
-       	foreach($leagueClass  as $class){
-        	    DB::table('league_classes')->insert([
-		            'class_name' => $class,
-		        ]);
-        }
-
-
        	factory(App\League::class,5)->create();
        	factory(App\Season::class,10)->create();
        	factory(App\User::class,100)->create();

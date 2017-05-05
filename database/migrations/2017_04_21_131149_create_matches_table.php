@@ -19,6 +19,10 @@ class CreateMatchesTable extends Migration
             $table->integer('local_team_id');
             $table->integer('visiting_team_id');
             $table->string('location');
+            $table->string('winning_team');
+            $table->string('losing_team');
+            $table->integer('final_score_local');
+            $table->integer('final_score_visitor');
             $table->timestamps();
         });
     }

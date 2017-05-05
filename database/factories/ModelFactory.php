@@ -72,6 +72,18 @@ $factory->define(App\Match::class,function(Faker\Generator $faker){
 
 		$localTeam = DB::Table('teams')->get()->random();
 		$visitorTeam = DB::Table('teams')->where('id','!=',$localTeam->id)->get()->random();
+		$scoreLocal = rand(0,9);
+		$scoreVisit = rand(0,9);
+
+		if($scoreLocal >= $scoreVisit){
+			$winningTeam = $localTeam->name;
+			$losingTeam = $visitorTeam->name;
+		}
+		else
+		{
+			$winningTeam = $visitorTeam->name;
+			$losingTeam = $localTeam->name;
+		}
 
 	return[
 		'season_id' => DB::Table('seasons')->get()->random()->id,
@@ -79,6 +91,10 @@ $factory->define(App\Match::class,function(Faker\Generator $faker){
 		'local_team_id' => $localTeam->id,
 		'visiting_team_id' => $visitorTeam->id,
 		'location' => $faker->city,
+		'winning_team' => $winningTeam,
+        'losing_team' => $losingTeam,
+        'final_score_local' => $scoreLocal,
+        'final_score_visitor' => $scoreVisit,
 		
 	];
 });
