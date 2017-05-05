@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
        	}
 
 
-        $roles = array('Admin','teamAdmin');
+        $roles = array('Admin','teamAdmin','registered');
 
         foreach($roles  as $role){
         	    DB::table('roles')->insert([
@@ -33,12 +33,12 @@ class DatabaseSeeder extends Seeder
 
 
 
-       	factory(App\League::class,5)->create();
-       	factory(App\Season::class,10)->create();
-       	factory(App\User::class,100)->create();
-       	factory(App\Team::class,10)->create();
-      	factory(App\Match::class,150)->create();
-       	factory(App\Player::class,200)->create()->each(function($player){
+       	factory(App\League::class,10)->create();
+       	factory(App\Season::class,100)->create();
+       	factory(App\User::class,800)->create();
+       	factory(App\Team::class,50)->create();
+      	factory(App\Match::class,500)->create();
+       	factory(App\Player::class,500)->create()->each(function($player){
 
        		$team = DB::Table('teams')->get()->random();
 
