@@ -22,11 +22,6 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style>
        /* Dropdown Button */
        ul {
@@ -85,17 +80,25 @@ ul:after { clear: both; }
 
   <body>
 
-
+ @include ('layouts.nav')
+        <div class="container">
+          <div class="blog-header">
+            <h1 class="blog-title">Pascal's Blog</h1>
+            <p class="lead blog-description">This is MY Blog</p>
+          </div>
+       </div>
 
     <div class="container">
         <div class="row">
           @yield('content')
 
+
+            @include ('layouts.sidebar')
         </div>
     </div>
 
 
-
+@include ('layouts.footer')
 
 
     <script src="../../dist/js/bootstrap.min.js"></script>

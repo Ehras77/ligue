@@ -52,7 +52,7 @@
                 <li style="z-index:100000;"><a href="#">{{$league->name}}</a>
                 <ul>
                 @foreach($league->season as $season)
-                  <li><a href="#">{{$season->id}}</a></li>
+                  <li><a href="#">{{$season->name}}</a></li>
                 @endforeach
                 </ul>
                 </li>
