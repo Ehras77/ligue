@@ -39,8 +39,9 @@ $factory->define(App\Season::class,function(Faker\Generator $faker){
 
 	$league = DB::Table('leagues')->get()->random();
 	return[
-		'start_date'=>'2017-01-01',
-		'end_date' => '2017-01-01',
+		'start_date'=> $faker->dateTimeInInterval($startDate = '-30 years', $interval = '+ 1 years', $timezone = date_default_timezone_get()),
+		'end_date' => $faker->dateTimeInInterval($startDate = '-29 years', $interval = '+ 1 years', $timezone = date_default_timezone_get()),
+		'name' => $faker->name,
 		'league_id' =>$league->id,
 		];
 });
