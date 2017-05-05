@@ -29,24 +29,16 @@
 
   <body>
 
-    @include ('layouts.nav')
-        <div class="container">
-          <div class="blog-header">
-            <h1 class="blog-title">Pascal's Blog</h1>
-            <p class="lead blog-description">This is MY Blog</p>
-          </div>
-        </div>
+
 
     <div class="container">
         <div class="row">
           @yield('content')
 
-          @include ('layouts.sidebar')
         </div>
     </div>
 
 
-    @include ('layouts.footer')
 
 
 

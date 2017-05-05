@@ -102,3 +102,13 @@ Route::post('/delete/league/{league_id}','LeagueController@destroy');
 Route::post('/delete/season/{season_id}','SeasonController@destroy');
 
 Route::post('/delete/match/{match_id}','MatchController@destroy');
+
+//Marquer un match
+
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', function ($api) {
+
+    $api->get('users', 'App\API\V1\Controllers\MarquerMatchController@getUsers');
+    $api->get('marquer/{match_id}','App\API\V1\Controllers\MarquerMatchController@show');
+});
