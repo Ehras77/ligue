@@ -26,9 +26,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker){
 
 $factory->define(App\League::class,function(Faker\Generator $faker){
 
+
+       	$leagueClass = array('A','AAA','B','CC','Papillon');
 	return[
 		'name' => $faker->name,
-		'league_class_id' => $faker->numberBetween($min= 1, $max=5),
+		'league_class' => $leagueClass[rand(0,4)],
 	];
 });
 
@@ -54,10 +56,12 @@ $factory->define(App\Team::class,function(Faker\Generator $faker){
 
 $factory->define(App\Stats::class,function(Faker\Generator $faker){
 
+			$statType = array('But','Passe','Pen. Majeure','Pen. Mineur');
+
 	return[
 		'player_id' => DB::Table('players')->get()->random()->id,
 		'match_id' => DB::Table('matches')->get()->random()->id,
-		'stat_type_id' => $faker->numberBetween($min=1, $max=4),
+		'stat_name' => $statType[rand(0,3)],
 		'temps_cadran' => $faker->time($format = 'H:i:s', $max = '20:00:00'),
 		'periode' => $faker->numberBetween($min=1, $max=3),
 

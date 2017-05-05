@@ -14,8 +14,4 @@ class Stats extends Model
     public function Match(){
     	return $this->belongsTo(Match::class);
     }
-
-    public function Stat_Type(){
-    	return $this->belongsTo(Stat_Type::class);
-    }
 }

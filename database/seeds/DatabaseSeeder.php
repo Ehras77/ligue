@@ -41,6 +41,7 @@ class DatabaseSeeder extends Seeder
 		        ]);
         }
 
+
        	factory(App\League::class,5)->create();
        	factory(App\Season::class,10)->create();
        	factory(App\User::class,100)->create();

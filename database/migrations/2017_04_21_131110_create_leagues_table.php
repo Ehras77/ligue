@@ -16,7 +16,7 @@ class CreateLeaguesTable extends Migration
         Schema::create('leagues', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('league_class_id');
+            $table->string('league_class');
             $table->timestamps();
         });
     }
