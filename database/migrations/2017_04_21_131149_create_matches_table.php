@@ -23,6 +23,7 @@ class CreateMatchesTable extends Migration
             $table->string('losing_team');
             $table->integer('final_score_local');
             $table->integer('final_score_visitor');
+            $table->datetime('date');
             $table->timestamps();
         });
     }

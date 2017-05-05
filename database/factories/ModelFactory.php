@@ -95,6 +95,7 @@ $factory->define(App\Match::class,function(Faker\Generator $faker){
         'losing_team' => $losingTeam,
         'final_score_local' => $scoreLocal,
         'final_score_visitor' => $scoreVisit,
+        'date' => $faker->dateTimeThisYear($max = 'now', $timezone = date_default_timezone_get()),
 		
 	];
 });

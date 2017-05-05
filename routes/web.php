@@ -14,7 +14,7 @@
 Route::get('/','HomeController@show');
 
 //calendrier match saison pour ligue
-Route::get('/calendrier/{league_id}','MatchController@show');
+Route::get('/calendrier/{season_id}/{league_id}','MatchController@show');
 
 //classements equipes ligue avec stats
 Route::get('/league/{league}/teams');
