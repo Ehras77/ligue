@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Season;
 
+use App\Team;
+
 use App\Match;
 
 class TeamController extends Controller
 {
     //
 
-    public function show(Team $team){
+        public function show(Team $team){
 
     	$season = Season::orderby('start_date','DESC')->first();
 
@@ -20,7 +22,7 @@ class TeamController extends Controller
 
     	
 
-    	return view('equipes.profile',compact('team','season','matches'));
+    	return viesw('equipes.profile',compact('team','season','matches'));
 
     }
 }

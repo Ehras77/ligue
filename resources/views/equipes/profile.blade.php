@@ -1,5 +1,5 @@
 
-<h2>{{ $player->name }}</h2>
+<h2>{{ $team->name }}</h2>
 <h2>Season: {{$season->name}}</h2>
 <table>
 
