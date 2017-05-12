@@ -58,10 +58,11 @@ $factory->define(App\Team::class,function(Faker\Generator $faker){
 $factory->define(App\Stats::class,function(Faker\Generator $faker){
 
 			$statType = array('But','Passe','Pen. Majeure','Pen. Mineur');
-
+			$player = DB::Table('players')->get()->random();
+			$teamid = DB::Table('player_team')->where('player_id',$player->id)->first()->team_id;
 	return[
-		'player_id' => DB::Table('players')->get()->random()->id,
-		'match_id' => DB::Table('matches')->get()->random()->id,
+		'player_id' => $player->id,
+		'match_id' => DB::Table('matches')->where('local_team_id',$teamid)->orWhere('visiting_team_id',$teamid)->get()->random()->id,
 		'stat_name' => $statType[rand(0,3)],
 		'temps_cadran' => $faker->time($format = 'H:i:s', $max = '20:00:00'),
 		'periode' => $faker->numberBetween($min=1, $max=3),
@@ -86,8 +87,16 @@ $factory->define(App\Match::class,function(Faker\Generator $faker){
 			$losingTeam = $localTeam->name;
 		}
 
+		$season = DB::Table('seasons')->get()->random();
+
+		$timestampDebut = strtotime($season->start_date);//pour avoir un match qui est dans la meme periode que ligue
+		$timestampFin = strtoTime($season->end_date);
+
+		$date = date('Y-m-d H:i:s',rand($timestampDebut,$timestampFin));
+
+
 	return[
-		'season_id' => DB::Table('seasons')->get()->random()->id,
+		'season_id' => $season->id,
 
 		'local_team_id' => $localTeam->id,
 		'visiting_team_id' => $visitorTeam->id,
@@ -96,7 +105,7 @@ $factory->define(App\Match::class,function(Faker\Generator $faker){
         'losing_team' => $losingTeam,
         'final_score_local' => $scoreLocal,
         'final_score_visitor' => $scoreVisit,
-        'date' => $faker->dateTimeThisYear($max = 'now', $timezone = date_default_timezone_get()),
+        'date' => $date,	//$faker->dateTimeThisYear($max = 'now', $timezone = date_default_timezone_get()),
 		
 	];
 });

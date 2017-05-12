@@ -4,22 +4,25 @@
 
 
         <div class="col-sm-8 blog-main">
-
-        <table>
-        <tr><td>test</td></tr>
-        @foreach($matches as $match)
+        <h3>Ligue : {{$matches->first()->season->league->name}}</h3>
+        <table id="tblCalendrier">
         <tr>
-        <td>{{$match->location}}</td>
+        <th style="padding-right:10px;">Saison</th>
+        <th style="padding-right:10px;">Location</th>
+        <th style="padding-right:10px;">Date</th>
+        <th style="padding-right:10px;">Equipes</th>
+        </tr>
+        @foreach($matches as $match)
+
+        <tr>
+        <td style="padding-right:10px;">{{$match->season->name}}</td>
+        <td style="padding-right:10px;">{{$match->location}}</td>
+        <td style="padding-right:10px;">{{$match->date}}</td>
+        <td style="padding-right:10px;">{{App\Team::find($match->local_team_id)->name}} VS {{App\Team::find($match->visiting_team_id)->name}}</td>
 
         </tr>
         @endforeach
         </table>
-          <nav>
-            <ul class="pager">
-              <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
-            </ul>
-          </nav>
 
         </div><!-- /.blog-main -->
 

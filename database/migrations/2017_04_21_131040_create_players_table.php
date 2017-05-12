@@ -23,7 +23,7 @@ class CreatePlayersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('player_teams',function(Blueprint $table){
+        Schema::create('player_team',function(Blueprint $table){
 
             $table->integer('player_id');
             $table->integer('team_id');
@@ -39,6 +39,6 @@ class CreatePlayersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('players');
-        Schema::dropIfExists('player_teams');
+        Schema::dropIfExists('player_team');
     }
 }

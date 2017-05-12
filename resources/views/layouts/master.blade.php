@@ -9,12 +9,10 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Pascal's Blog</title>
+    <title>Les Cougars 123</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-
-     Custom styles for this template 
     <link href="{{ URL::asset('css/blog.css') }}" rel="stylesheet" type="text/css" >
 
      <script src="{{ asset('js/app.js') }}"></script>
@@ -75,18 +73,13 @@ ul:after {
 }
 
 ul:after { clear: both; }
+
     </style>
   </head>
 
   <body>
 
  @include ('layouts.nav')
-        <div class="container">
-          <div class="blog-header">
-            <h1 class="blog-title">Pascal's Blog</h1>
-            <p class="lead blog-description">This is MY Blog</p>
-          </div>
-       </div>
 
     <div class="container">
         <div class="row">
@@ -99,6 +92,7 @@ ul:after { clear: both; }
 
 
 @include ('layouts.footer')
+
 
 
     <script src="../../dist/js/bootstrap.min.js"></script>
