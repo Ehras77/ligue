@@ -1,3 +1,7 @@
+@extends ('layouts.master')
+
+@section ('content')
+        <div class="col-sm-8 blog-main">
 
 <h2>{{ $player->first_name}} {{$player->last_name}}</h2>
 <table>
@@ -37,3 +41,6 @@
 
 
 </table>
+</div>
+
+@endsection

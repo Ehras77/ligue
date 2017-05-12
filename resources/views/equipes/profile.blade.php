@@ -1,3 +1,7 @@
+@extends ('layouts.master')
+
+@section ('content')
+        <div class="col-sm-8 blog-main">
 
 <h2>{{ $team->name }}</h2>
 <h2>Season: {{$season->name}}</h2>
@@ -16,13 +20,38 @@
 @php
 $buts = 0;
 $goals = 0;
+$victoires = 0;
+$defaites = 0;
+$nulles = 0;
 @endphp
+
+@foreach($matches as $match)
+@if ($match->final_score_local == $match->final_score_visitor)
+@php
+	$nulles += 1;
+@endphp
+
+@elseif ($match->winning_team == $team->name)
+
+@php
+	$victoires += 1;
+@endphp
+
+@else
+
+@php
+	$defaites +=1;
+@endphp
+@endif
+@endforeach
 
 <tr>
 <td>Total</td>
-<td>{{ $matches->where('winning_team',$team->name)->Where('final_score_local','<>','final_score_visitor')->count()}} Victoires </td>
-<td>{{ $matches->where('losing_team',$team->name)->Where('final_score_local','<>','final_score_visitor')->count()}} Défaites </td>
-<td>{{ $matches->where('losing_team',$team->name)->Where('final_score_local','final_score_visitor')->count()}} nulles </td>
+
+
+<td>{{ $victoires}} Victoires </td>
+<td>{{ $defaites}} Défaites </td>
+<td>{{ $nulles }} nulles </td>
 <td>
 @foreach($matches as $match)
 	@if($team->id == $match->local_team_id)
@@ -95,3 +124,6 @@ $goals = 0;
 
 
 </table>
+</div>
+
+@endsection

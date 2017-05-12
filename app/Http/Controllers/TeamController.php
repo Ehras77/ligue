@@ -18,11 +18,22 @@ class TeamController extends Controller
 
     	$season = Season::orderby('start_date','DESC')->first();
 
-    	$matches = Match::where('season_id',$season->id)->get();
+    	$matches = Match::where('local_team_id',$team->id)->orWhere('visiting_team_id',$team->id)->get();
+
+    	$matches = $matches->where('season_id',$season->id);
+
+
+
+
+
+    	//dd($matches);
 
     	
 
-    	return viesw('equipes.profile',compact('team','season','matches'));
+
+    	
+
+    	return view('equipes.profile',compact('team','season','matches'));
 
     }
 }
