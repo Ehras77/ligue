@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','HomeController@show');
+Route::get('/','HomeController@index');
 
 //calendrier match saison pour ligue
 Route::get('/calendrier/{season}','SeasonController@show');
@@ -112,3 +112,7 @@ $api->version('v1', function ($api) {
     $api->get('users', 'App\API\V1\Controllers\MarquerMatchController@getUsers');
     $api->get('marquer/{match_id}','App\API\V1\Controllers\MarquerMatchController@show');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
