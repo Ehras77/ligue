@@ -5,7 +5,8 @@
 
     <div style="text-align:center" class="col-md-4">
       <h1>Équipe Locale</h1>
-      {{$match}}
+      dd($match);
+      {{$match->}}
     </div>
 
     <div style="text-align:center" class="col-md-4">
