@@ -28,7 +28,7 @@ Route::get('/league/{league}/players','LeagueController@showPlayersStats');
 Route::get('/joueur/{player}','PlayerController@show');
 
 //page profile equipe, resume stats saison actuelle, choix changer saison
-Route::get('/equipe/{team_id}/{season_id}','TeamController@show');
+Route::get('/equipe/{team_id}','TeamController@show');
 
 //interface gestion team admin qui permet d'effacter et d'ajouter des joueurs a son equipe (middleware et policy), changer nom equipe
 Route::get('/edit/{team_id}','TeamController@edit');
