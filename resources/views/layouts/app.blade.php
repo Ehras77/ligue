@@ -84,15 +84,56 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+
+                        <li>
+                          <a href="/home">Accueil</a>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" data-toggle="dropdown" class="dropdown-toggle" role="button">Ligues</a>
+                            <ul class="dropdown-menu">
+                              @foreach(\App\League::get() as $league)
+
+                                        <li>
+                                          <a href="#">{{$league->name}}</a>
+                                            <ul class="dropdown-menu sub-menu" role="menu">
+                                              @foreach($league->season as $season)
+                                                <li>
+                                                  <a href="/calendrier/{{$season->id}}">{{$season->name}}</a>
+                                                </li>
+                                              @endforeach
+                                            </ul>
+                                        </li>
+                             @endforeach
+                          </ul>
+                      </li>
+
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Classement</a>
+                            <ul class="dropdown-menu">
+                              @foreach(\App\League::get() as $league)
+                                      <li style="z-index:100000;"><a href="#">{{$league->name}}</a>
+                                        <ul class="dropdown-menu sub-menu" role="menu">
+                                          <li>
+                                            <a href="/league/{{$league->id}}/players">Joueurs</a>
+                                          </li>
+                                          <li>
+                                            <a href="/league/{{$league->id}}/teams">Equipes</a>
+                                          </li>
+                                        </ul>
+                                      </li>
+                              @endforeach
+                            </ul>
+                        </li>
+
+                        <li>
+                          <a href="#">À propos</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
