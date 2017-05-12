@@ -20,9 +20,9 @@ class TeamController extends Controller
 
     	$matches = Match::where('season_id',$season->id)->get();
 
-    	
 
-    	return viesw('equipes.profile',compact('team','season','matches'));
+
+    	return view('equipes.profile',compact('team','season','matches'));
 
     }
 }
