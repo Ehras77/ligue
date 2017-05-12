@@ -17,7 +17,6 @@ class MarquerMatchController extends Controller
       $match = Match::get()->where('id', $id);
       $localTeam = Team::get()->where('id', $match->local_team_id);
       $visitingTeam = Team::get()->where('id', $match->visiting_team_id);
-      dd($match);
     	return view('StatsMatch')->with('match',$match)
                                ->with('localTeam', $localTeam)
                                ->with('visitingTeam', $visitingTeam);

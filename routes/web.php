@@ -37,7 +37,7 @@ Route::get('/edit/{team_id}','TeamController@edit');
 Route::get('/admin','AdminController@index');
 
 //voir stats d'un match (feuille match)
-Route::get('/stats/{match_id}','StatsController@showMatch');
+Route::get('/stats/{match}','StatsController@showMatch');
 
 //filtrer classemeent eqeuipes par ligue et saison
 Route::get('/classement','StatsController@Show'); //queryString de league, equipe et saison et joueur
