@@ -14,21 +14,21 @@
 Route::get('/','HomeController@show');
 
 //calendrier match saison pour ligue
-Route::get('/calendrier/{league}/{season}','MatchController@show');
+Route::get('/calendrier/{season}','SeasonController@show');
 
 //classements equipes ligue avec stats
-Route::get('/league/{league}/teams');
+Route::get('/league/{league}/teams','LeagueController@showTeamStats');
 //Route::get('/classement/equipe/{league_id}/{team_id}','StatsController@showStatsTeam');
 
 //joueur ligue classement stats
-Route::get('/league/{league}/players');
+Route::get('/league/{league}/players','LeagueController@showPlayersStats');
 //Route::get('/classement/joueur/{league_id}/{player_id}','StatsController@showstatsPlayer');
 
 //page profil joueur, avec stats courantes, toutes les saisons
-Route::get('/joueur/{player_id}','PlayerController@showPlayer');
+Route::get('/joueur/{player}','PlayerController@show');
 
 //page profile equipe, resume stats saison actuelle, choix changer saison
-Route::get('/equipe/{team_id}/{season_id}','TeamController@showEquipe');
+Route::get('/equipe/{team_id}/{season_id}','TeamController@show');
 
 //interface gestion team admin qui permet d'effacter et d'ajouter des joueurs a son equipe (middleware et policy), changer nom equipe
 Route::get('/edit/{team_id}','TeamController@edit');

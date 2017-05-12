@@ -14,11 +14,5 @@ class MatchController extends Controller
 {
     //
 
-    public function show(League $league,Season $season){
 
-
-    	$matches = $season->match;
-    	return view('calendrier.calendrierLeague',compact('matches'));
-
-    }
 }

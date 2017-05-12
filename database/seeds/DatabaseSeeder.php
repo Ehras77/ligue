@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
 
        		$team = DB::Table('teams')->get()->random();
 
-       		DB::Table('player_teams')->insert([
+       		DB::Table('player_team')->insert([
        			'player_id' => $player->id,
        			'team_id' => $team->id,
 			]);
