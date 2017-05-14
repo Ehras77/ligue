@@ -27,7 +27,7 @@
 
 
 <tr>
-<td>{{ $match->location }}</td>
+<td><a href="/match/{{$match->id}}">{{ $match->location }}</a></td>
 <td>{{ $stats->where('stat_name','But')->where('match_id',$match->id)->count() }}</td>
 <td>{{ $stats->where('stat_name','Passe')->where('match_id',$match->id)->count() }}</td>
 <td>{{ $stats->where('stat_name','Pen. Mineur')->where('match_id',$match->id)->count() }}</td>

@@ -6,7 +6,7 @@
 
         <ul class="main-navigation">
   <li><a href="/">Home</a></li>
-  <li><a href="#">League</a>
+  <li><a href="#">Calendrier</a>
     <ul>
       @foreach(\App\League::get() as $league)
 
@@ -26,8 +26,8 @@
             <li style="z-index:100000;"><a href="#">{{$league->name}}</a>
             <ul>
 
-              <li><a href="/league/{{$league->id}}/players">Joueurs</a></li>
-              <li><a href="/league/{{$league->id}}/teams">Equipes</a></li>
+              <li><a href="/league/players?league={{$league->id}}">Joueurs</a></li>
+              <li><a href="/league/teams?league={{$league->id}}">Equipes</a></li>
             </ul>
             </li>
     @endforeach

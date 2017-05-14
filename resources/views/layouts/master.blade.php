@@ -74,6 +74,10 @@ ul:after {
 
 ul:after { clear: both; }
 
+td {
+  padding-right:10px;
+}
+
     </style>
   </head>
 
@@ -91,7 +95,7 @@ ul:after { clear: both; }
     </div>
 
 
-@include ('layouts.footer')
+<!--@include ('layouts.footer')-->
 
 
 

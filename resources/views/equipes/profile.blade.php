@@ -50,8 +50,8 @@ $nulles = 0;
 
 
 <td>{{ $victoires}} Victoires </td>
-<td>{{ $defaites}} Défaites </td>
-<td>{{ $nulles }} nulles </td>
+<td> {{ $defaites}} Défaites </td>
+<td> {{ $nulles }} nulles </td>
 <td>
 @foreach($matches as $match)
 	@if($team->id == $match->local_team_id)
@@ -87,7 +87,7 @@ $nulles = 0;
 
 
 <tr>
-<td>{{ $match->location }}</td>
+<td><a href="/match/{{$match->id}}">{{ $match->location }}</a></td>
 
 @if ($match->final_score_local == $match->final_score_visitor)
 
