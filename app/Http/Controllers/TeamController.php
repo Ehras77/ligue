@@ -28,8 +28,12 @@ class TeamController extends Controller
 
     	//dd($matches);
 
-    
+
     	return view('equipes.profile',compact('team','season','matches'));
+
+    }
+
+    public function editForm(Team $team){
 
     }
 }

@@ -75,7 +75,7 @@ Route::post('/create/match','MatchController@store');
 Route::get('/edit/user/{user_id}','UserController@create');
 Route::post('/edit/user/{user_id}','UserController@update');
 
-Route::get('/edit/team/{team_id}','TeamController@create');
+Route::get('/edit/team/{team_id}','TeamController@editForm')->middleware('ifAdmin');
 Route::post('/edit/team/{team_id}','TeamController@update');
 
 Route::get('/edit/joueur/{joueur_id}','PlayerController@create');
