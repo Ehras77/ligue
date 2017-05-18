@@ -8,11 +8,12 @@ use App\Player;
 
 use App\Stats;
 
-use App\Match; 
+use App\Match;
 
 use App\Season;
 
 use App\League;
+use DB; 
 
 class PlayerController extends Controller
 {
@@ -32,5 +33,23 @@ class PlayerController extends Controller
 
     	return view('joueurs.profile',compact('player','stats','matches'));
 
+    }
+
+    public function addPlayer(Request $request){
+      $player = new Player;
+
+      $player->first_name = $request->prenom;
+      $player->last_name = $request->nom;
+      $player->number = $request->numero;
+      $player->position_id = $request->positionid;
+
+      $player->save();
+
+      DB::table('player_team')->insert(
+        ['player_id' => $player->id, 'team_id' => $request->teamid]
+      );
+
+      return back();
+      return redirect()->back();
     }
 }

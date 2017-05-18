@@ -4,6 +4,16 @@
         <div class="col-sm-8 blog-main">
 
 <h2>{{ $team->name }}</h2>
+<form method="POST" action='/edit/team/{{$team->id}}'>
+  {{ csrf_field() }}
+  <div class="form-group">
+    <textarea class="form-control" name="teamName" placeholder="Nouveau nom : " required></textarea>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+  </div>
+
+</form>
 <h2>Season: {{$season->name}}</h2>
 <table>
 
@@ -151,7 +161,26 @@ $nulles = 0;
   		<td style="padding-right:15px;">{{ App\Stats::where('player_id',$joueur->id)->where('stat_name','Pen. Majeure')->get()->count() }}</td>
   		</tr>
   	@endforeach
+    <tr>
+      <td>Ajouter un joueur</td>
+      <td>
+        <form method="POST" action='/create/joueur'>
+          {{ csrf_field() }}
+          <div class="form-group">
+            <input type="hidden" name="teamid" value="{{$team->id}}" />
+            <textarea class="form-control" name="nom" placeholder="nom : " required></textarea>
+            <textarea class="form-control" name="prenom" placeholder="prenom : " required></textarea>
+            <textarea class="form-control" name="numero" placeholder="numero : " required></textarea>
+            <textarea class="form-control" name="positionid" placeholder="positionid (1-4) : " required></textarea>
 
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+          </div>
+
+        </form>
+      </td>
+    </tr>
 
 
 

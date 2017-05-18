@@ -8,6 +8,7 @@
     "require": {
         "php": ">=5.6.4",
         "dingo/api": "1.0.x@dev",
+        "illuminate/html": "^5.0@dev",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0"
     },

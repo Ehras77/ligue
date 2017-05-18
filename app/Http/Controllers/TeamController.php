@@ -51,4 +51,19 @@ class TeamController extends Controller
     	return view('equipes.edit',compact('team','season','matches','players'));
 
     }
+
+    public function store(Team $team){
+      $team->id = $team->id;
+      $team->name = request('teamName');
+      $team->league_id = $team->league_id;
+      $team->user_id = $team->user_id;
+      $team->created_at = $team->created_at;
+      $team->updated_at = $team->updated_at;
+      $team->save();
+      return redirect('/equipe/'. $team->id );
+    }
+
+
+
+
 }

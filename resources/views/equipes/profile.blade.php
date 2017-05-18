@@ -4,6 +4,13 @@
         <div class="col-sm-8 blog-main">
 
 <h2>{{ $team->name }}</h2>
+<form method="GET" action='/edit/team/{{$team->id}}'>
+  {{ csrf_field() }}
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Modifier l'équipe</button>
+  </div>
+
+</form>
 <h2>Season: {{$season->name}}</h2>
 <table>
 

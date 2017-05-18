@@ -60,7 +60,7 @@ Route::get('/create/team','TeamController@create');
 Route::post('/create/team','TeamController@store');
 
 Route::get('/create/joueur','PlayerController@create');
-Route::post('/create/joueur','PlayerController@store');
+Route::post('/create/joueur','PlayerController@addPlayer');
 
 Route::get('/create/league','LeagueController@create');
 Route::post('/create/league','LeagueController@store');
@@ -76,7 +76,7 @@ Route::get('/edit/user/{user_id}','UserController@create');
 Route::post('/edit/user/{user_id}','UserController@update');
 
 Route::get('/edit/team/{team}','TeamController@editForm');
-Route::post('/edit/team/{team}','TeamController@update');
+Route::post('/edit/team/{team}','TeamController@store');
 
 Route::get('/edit/joueur/{joueur_id}','PlayerController@create');
 Route::post('/edit/joueur/{joueur_id}','PlayerController@update');
